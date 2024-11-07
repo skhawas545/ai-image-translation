@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - AI Image Translation App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em 0;
+        }
+        nav {
+            margin-top: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-size: 18px;
+            margin: 0 15px;
+        }
+        nav a.active {
+            font-weight: bold;
+            color: #333;
+        }
+        .container {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to the AI Image Translation App</h1>
+    </header>
+
+    <nav>
+        <!-- Use url_for for dynamic linking, and add a class "active" to the current page link -->
+        <a href="{{ url_for('home') }}" class="{{ 'active' if request.endpoint == 'home' else '' }}">Home</a>
+        <a href="{{ url_for('translation') }}" class="{{ 'active' if request.endpoint == 'translation' else '' }}">AI Translation</a>
+        <a href="{{ url_for('about') }}" class="{{ 'active' if request.endpoint == 'about' else '' }}">About Us</a>
+        <a href="{{ url_for('help') }}" class="{{ 'active' if request.endpoint == 'help' else '' }}">Help</a>
+        <a href="{{ url_for('feedback') }}" class="{{ 'active' if request.endpoint == 'feedback' else '' }}">Feedback</a>
+        <a href="{{ url_for('privacy') }}" class="{{ 'active' if request.endpoint == 'privacy' else '' }}">Privacy Policy</a>
+        <a href="{{ url_for('requirements') }}" class="{{ 'active' if request.endpoint == 'requirements' else '' }}">Functional Requirements</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+
+    <div class="container">
+        <h2>Translate Images with AI</h2>
+        <p>This application allows you to translate text within images to your preferred language using advanced AI technology.</p>
+        <p>To get started, navigate to the <a href="{{ url_for('translation') }}">AI Translation</a> page, upload an image, select a language, and let the AI handle the rest!</p>
+    </div>
+
+    <footer>
+        &copy; 2024 AI-Based Picture Translation App
+    </footer>
+
+</body>
+</html>

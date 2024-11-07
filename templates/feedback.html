@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - AI Image Translation App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em 0;
+        }
+        nav {
+            margin-top: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-size: 18px;
+            margin: 0 15px;
+        }
+        .container {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Feedback</h1>
+    </header>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/translation">AI Translation</a>
+        <a href="/about">About Us</a>
+        <a href="/help">Help</a>
+        <a href="/feedback">Feedback</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/requirements">Functional Requirements</a>
+    </nav>
+
+    <div class="container">
+        <h2>We Value Your Feedback!</h2>
+        <p>Please share your thoughts about our app.</p>
+
+        <!-- Update form action to correctly point to /feedback (POST method) -->
+        <form action="/feedback" method="post">
+            <textarea name="feedback" placeholder="Enter your feedback here..." required></textarea><br>
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Flash messages for success -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <footer>
+        &copy; 2024 AI-Based Picture Translation App
+    </footer>
+
+</body>
+</html>

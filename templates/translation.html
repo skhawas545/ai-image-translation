@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Translation - AI Image Translation App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em 0;
+        }
+        nav {
+            margin-top: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-size: 18px;
+            margin: 0 15px;
+        }
+        .container {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .feedback {
+            color: green;
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>AI Translation</h1>
+    </header>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/translation">AI Translation</a>
+        <a href="/about">About Us</a>
+        <a href="/help">Help</a>
+        <a href="/feedback">Feedback</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/requirements">Functional Requirements</a>
+    </nav>
+
+    <div class="container">
+        <h2>Upload an Image for Translation</h2>
+
+        <!-- Form to upload image and select language -->
+        <form action="/translate-image" method="post" enctype="multipart/form-data">
+            <!-- Image upload input -->
+            <input type="file" name="imageUpload" required>
+            <!-- Language selection dropdown -->
+            <select name="language" required>
+                <option value="en">English</option>
+            </select>
+            <!-- Submit button -->
+            <button type="submit">Translate</button>
+        </form>
+
+        <!-- Display feedback messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="feedback">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <footer>
+        &copy; 2024 AI-Based Picture Translation App
+    </footer>
+
+</body>
+</html>
